@@ -1,2 +1,2 @@
 # Pokemon
-Trabajo Porgramación Pokemon
+Trabajo Programación Pokemon
