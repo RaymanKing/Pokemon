@@ -16,11 +16,15 @@ public class Pokemon {
     private int id;
 
     // CREACION DE CONSTRUCTORES
-    public Pokemon(){}
-    public Pokemon(int id){
+    public Pokemon() {
+    }
+
+    public Pokemon(int id) {
         // Cargar de BBDD FICHERO O API
     }
-    public Pokemon(String nombre,int[] tipo,int ps,int at,int ats,int df,int dfs,int vel,int id,ArrayList<Movimiento> movimientos){
+
+    public Pokemon(String nombre, int[] tipo, int ps, int at, int ats, int df, int dfs, int vel, int id,
+            ArrayList<Movimiento> movimientos) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.ps = ps;
@@ -35,11 +39,11 @@ public class Pokemon {
 
     // METODOS GET Y SET
 
-    public String getNombre(){
+    public String getNombre() {
         return this.nombre;
     }
 
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -51,70 +55,70 @@ public class Pokemon {
         this.tipo = tipo;
     }
 
-    public int getPs(){
+    public int getPs() {
         return this.ps;
     }
 
-    public void setPs(int ps){
+    public void setPs(int ps) {
         this.ps = ps;
     }
 
-    public int getAt(){
+    public int getAt() {
         return this.at;
     }
 
-    public void setAt(int at){
+    public void setAt(int at) {
         this.at = at;
     }
 
-    public int getAts(){
+    public int getAts() {
         return this.ats;
     }
 
-    public void setAts(int ats){
+    public void setAts(int ats) {
         this.ats = ats;
     }
 
-    public int getDf(){
+    public int getDf() {
         return this.df;
     }
 
-    public void setDf(int df){
+    public void setDf(int df) {
         this.df = df;
     }
 
-    public int getDfs(){
+    public int getDfs() {
         return this.dfs;
     }
 
-    public void setDfs(int dfs){
+    public void setDfs(int dfs) {
         this.dfs = dfs;
     }
 
-    public int getVel(){
+    public int getVel() {
         return this.vel;
     }
 
-    public void setVel(int vel){
+    public void setVel(int vel) {
         this.vel = vel;
     }
 
-    public int getId(){
+    public int getId() {
         return this.vel;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    //METODO OVERRIDE
+    // METODO OVERRIDE
     @Override
-    public String toString(){
-        return nombre+" es de tipo "+tipo+" con el id "+id;
+    public String toString() {
+        return nombre + " es de tipo " + tipo + " con el id " + id;
     }
 
-    public String getInfo(){
-        return "Las caracteristicas de "+nombre+" son [Ataque "+at+"| Ataque especial "+ats+"][Defensa "+df+"| Defensa especial "+dfs+"][Velocidad "+vel+"]";
+    public String getInfo() {
+        return "Las caracteristicas de " + nombre + " son [Ataque " + at + "| Ataque especial " + ats + "][Defensa "
+                + df + "| Defensa especial " + dfs + "][Velocidad " + vel + "]";
     }
 }
-
