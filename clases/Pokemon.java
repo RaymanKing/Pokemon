@@ -23,6 +23,19 @@ public class Pokemon {
         // Cargar de BBDD FICHERO O API
     }
 
+    public Pokemon(String nombre, int[] tipo, int ps, int at, int ats, int df, int dfs, int vel, int id) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.ps = ps;
+        this.at = at;
+        this.ats = ats;
+        this.df = df;
+        this.dfs = dfs;
+        this.vel = vel;
+        this.id = id;
+        this.movimientos = new ArrayList<Movimiento>();
+    }
+
     public Pokemon(String nombre, int[] tipo, int ps, int at, int ats, int df, int dfs, int vel, int id,
             ArrayList<Movimiento> movimientos) {
         this.nombre = nombre;
@@ -109,6 +122,23 @@ public class Pokemon {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void addMovimiento(Movimiento mov) {
+        if (this.movimientos.size() >= 4 || movimientoRepetido(mov)) {
+            return;
+        }
+        this.movimientos.add(mov);
+    }
+
+    public boolean movimientoRepetido(Movimiento mov) {
+        // Si mov esta en this.movimientos
+        int i = this.movimientos.indexOf(mov);
+        if (i == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     // METODO OVERRIDE
