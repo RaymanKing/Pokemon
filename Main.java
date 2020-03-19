@@ -43,7 +43,7 @@ public class Main {
             }
         }
         System.out.println("Ahora vamos a comenzar la batalla sientensen y disfruten");
-        // batallaPokemon(entrenador1, entrenador2);
+        System.out.println("El ganador de la batalla es " + batallaPokemon(entrenador1, entrenador2));
     }
 
     // METODOS PARA LA CREACION DE LOS ENTRENADORES CON SUS 6 POKEMON
@@ -74,7 +74,7 @@ public class Main {
     public static Pokemon crearPokemon() {
         String nombre = POKEMON_NOMBRE[(int) Math.floor(Math.random() * POKEMON_NOMBRE.length)];
         int[] tipos = { 0 };
-        int vida = (int) Math.floor(Math.random() * 300 + 1);
+        int vida = (int) Math.floor(Math.random() * 600 + 1);
         int atk = (int) Math.floor(Math.random() * 200 + 1);
         int atksp = (int) Math.floor(Math.random() * 200 + 1);
         int df = (int) Math.floor(Math.random() * 200 + 1);
@@ -131,14 +131,61 @@ public class Main {
 
     // METODO BATALLA POKEMON
 
-    /*
-     * public String batallaPokemon(Jugador entrenador1, Jugador entrenador2) { int
-     * i = (int) (Math.random() * 6 + 1); int j = (int) (Math.random() * 6 + 1);
-     * System.out.println("Bienvenido a la batalla Pokemons");
-     * System.out.println("Entre los entrenadores " + entrenador1.getNombre());
-     * System.out.println("contra el entrenador " + entrenador2.getNombre());
-     * 
-     * }
-     */
+    public static String batallaPokemon(Jugador entrenador1, Jugador entrenador2) {
+        int aleatorioPok1 = (int) (Math.random() * 6 + 1);
+        int aleatorioPok2 = (int) (Math.random() * 6 + 1);
+        System.out.println("Bienvenido a la batalla Pokemons");
+        System.out.println("Entre los entrenadores " + entrenador1.getNombre());
+        System.out.println("contra el entrenador " + entrenador2.getNombre());
+        System.out.println("Vamos a comenzar el entrenador uno tiene que sacar un pokemon");
+        System.out.println("El entrenador uno saca a " + entrenador1.getPokemons().get(aleatorioPok1).getNombre());
+        System.out.println("El entrenador dos saca a " + entrenador2.getPokemons().get(aleatorioPok2).getNombre());
+        System.out.println("Comienza el combate el primero en atacar sera el Pokemon con mas velocidad");
+
+        if (entrenador1.getPokemons().get(aleatorioPok1).getVel() > entrenador2.getPokemons().get(aleatorioPok2)
+                .getVel()) {
+            int vida = 10;
+            while (vida > 0) {
+
+                int ataque = entrenador1.getPokemons().get(aleatorioPok1).getAt();
+                vida = entrenador2.getPokemons().get(aleatorioPok2).getPs();
+                vida = vida - ataque;
+                entrenador2.getPokemons().get(aleatorioPok2).setPs(vida);
+                if (entrenador2.getPokemons().get(aleatorioPok2).getPs() <= 0) {
+                    return "El ganador es " + entrenador1.getNombre();
+                } else {
+                    ataque = entrenador2.getPokemons().get(aleatorioPok2).getAt();
+                    vida = entrenador1.getPokemons().get(aleatorioPok1).getPs();
+                    vida = vida - ataque;
+                    entrenador1.getPokemons().get(aleatorioPok1).setPs(vida);
+                    if (entrenador1.getPokemons().get(aleatorioPok1).getPs() <= 0) {
+                        return "El ganador es " + entrenador2.getNombre();
+                    }
+                }
+
+            }
+        } else {
+            int vida = 10;
+            while (vida > 0) {
+
+                int ataque = entrenador2.getPokemons().get(aleatorioPok2).getAt();
+                vida = entrenador1.getPokemons().get(aleatorioPok1).getPs();
+                vida = vida - ataque;
+                entrenador2.getPokemons().get(aleatorioPok2).setPs(vida);
+                if (entrenador2.getPokemons().get(aleatorioPok2).getPs() <= 0) {
+                    return "El ganador es " + entrenador1.getNombre();
+                } else {
+                    ataque = entrenador1.getPokemons().get(aleatorioPok1).getAt();
+                    vida = entrenador2.getPokemons().get(aleatorioPok2).getPs();
+                    vida = vida - ataque;
+                    entrenador1.getPokemons().get(aleatorioPok1).setPs(vida);
+                    if (entrenador1.getPokemons().get(aleatorioPok1).getPs() <= 0) {
+                        return "El ganador es " + entrenador2.getNombre();
+                    }
+                }
+            }
+        }
+
+    }
 
 }
