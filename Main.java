@@ -15,22 +15,16 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int eleccion;
-
-        Jugador entrenador = crearJugador();
-
-        System.out.println("Bienvenido al mundo Pokemon, vamos a comenzar tu aventura como entrenador");
-        System.out.println("Para comenzar el juego pulse 1.");
-        eleccion = sc.nextInt();
         boolean juego;
 
-        /*
-         * switch (juego) { case 1:
-         * 
-         * break;
-         * 
-         * default: break; }
-         */
+        System.out.println("Bienvenidos al mundo Pokemon.");
+        System.out.println("Vamos a comenzar la aventura.");
+        System.out.println("Primero vamos a crear al primer entrenador Pokemon");
+        Jugador entrenador1 = crearEntrenadorPokemon();
+        System.out.println(entrenador1.toString());
+        System.out.println("Ahora vamos a crear el segundo entrenador Pokemon");
+        Jugador entrenador2 = crearEntrenadorPokemon2();
+        System.out.println(entrenador2.toString());
 
     }
 
@@ -101,4 +95,30 @@ public class Main {
         return sc.nextLine();
     }
 
+    // METODO PARA CREAR CADA ENTRENADOR
+
+    public static Jugador crearEntrenadorPokemon() {
+        Jugador entrenador1 = crearJugador();
+        return entrenador1;
+    }
+
+    public static Jugador crearEntrenadorPokemon2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el nombre de tu entrenador");
+        String nombre = sc.nextLine();
+        Jugador entrenador2 = crearJugador(nombre);
+
+        return entrenador2;
+    }
+
+    // METODO BATALLA POKEMON
+
+    /*
+     * public String batallaPokemon(Jugador entrenador1,Jugador entrenador2){ int i
+     * = (int) (Math.random()*6+1); int j = (int) (Math.random()*6+1);
+     * System.out.println("Bienvenido a la batalla Pokemons");
+     * System.out.println("Entre los entrenadores "+entrenador1.getNombre());
+     * System.out.println("contra el entrenador "+entrenador2.getNombre()); String
+     * nombre = entrenador1.getPokemons(i).getNombre(); }*
+     */
 }
